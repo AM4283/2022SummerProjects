@@ -2,10 +2,13 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+// The right way to do this, good
 #define DELTA 0.0001
 using namespace std;
 
 // Order: r, theta, phi (radius, "vertical angle", "horizontal angle") if x and y = 0, phi returns -1
+// Good comment, might mention the range of r, theta, and phi (especially since theta can range from 0->2pi
+//  OR -pi->+pi depending on convention)
 vector<float> convertfromcartesian(float x, float y, float z) {
   float r = sqrt(x*x+y*y+z*z);
   float theta = acos(z/r);
@@ -46,6 +49,8 @@ vector<float> convertfromspherical(vector<float> spherical) {
   return convertfromspherical(spherical[0], spherical[1], spherical[2]);
 }
 
+// rename to printCoordinates or something similar, since this isn't a general purpose
+//  function- it assumes the vector will look like a coordinate
 void printstuff(vector<float> values) {
   cout << "Converted coordinate: " << values[0] << ", " << values[1] << ", " << values[2] << endl;
 }
@@ -91,6 +96,8 @@ void getcoords(int input, float coord1, float coord2, float coord3) {
 int main(int argc, char* argv[]) {
   for (int i = 1; i<argc; i++) {
     if (!(isdigit(*argv[i]))) {
+      //Mention the range of the options in the next line so the user knows what valid
+      // inputs are
       cout << "Error: Correct argument syntax: command [OPTION] [COORDINATE 1 2 3]" << endl;
       return 1;
     }
@@ -103,6 +110,7 @@ int main(int argc, char* argv[]) {
     cin >> input;
     if (input == 1 || input == 2) {
       // NAN passed in as dummy values into getcoords()
+      // Nice!
       getcoords(input, NAN, NAN, NAN);
     } else {
       cerr << "Invalid input" << endl;
