@@ -39,10 +39,6 @@ vector<float> ConvertFromCartesian(vector<float> cartesian) {
 // "horizontal angle", returns corresponding x,y,z
 // r must be >= 0, 0<=theta<=+pi, -pi<=phi<=+pi
 vector<float> ConvertFromSpherical(float r, float theta, float phi) {
-  if (r < 0 || theta < 0 || theta > M_PI || phi < -M_PI || phi > M_PI ) {
-    cout << "Invalid input: Input must meet: r ∈ [0, ∞), θ ∈ [0, π], φ ∈ [-π, π)\n";
-    exit(EXIT_FAILURE);
-  }
   float x = r * cos(phi) * sin(theta);
   float y = r * sin(phi) * sin(theta);
   float z = r * cos(theta);
@@ -104,6 +100,10 @@ void GetCoords(int input, float coord1, float coord2, float coord3) {
             "φ is measured from the cartesian x-axis\n";
     PrintCoordinates(ConvertFromCartesian(coord1, coord2, coord3));
   } else {
+    if (coord1 < 0 || coord2 < 0 || coord2 > M_PI || coord3 < -M_PI || coord3 > M_PI ) {
+      cout << "Invalid input: Input must meet: r ∈ [0, ∞), θ ∈ [0, π], φ ∈ [-π, π)\n";
+      exit(EXIT_FAILURE);
+    }
     Check(nums,
           ConvertFromCartesian(ConvertFromSpherical(coord1, coord2, coord3)));
     PrintCoordinates(ConvertFromSpherical(coord1, coord2, coord3));
@@ -111,8 +111,10 @@ void GetCoords(int input, float coord1, float coord2, float coord3) {
 }
 
 int main(int argc, char *argv[]) {
+  // cout << argc << "Arguments\n" << argv[1] << "\n";
   for (int i = 1; i < argc; i++) {
-    if (!(isdigit(*argv[i]))) {
+    if (*argv[i] == '-' && atof(argv[i]) < 0) { continue; }
+    else if (!(isdigit(*argv[i]))) {
       cout << "Error: Correct argument syntax: command [OPTION] [COORDINATE 1 2 3]\n";
       cout << "OPTION: 1 - Cartesian to Spherical, 2 - Spherical to Cartesian" << endl;
       return 1;
