@@ -1,8 +1,5 @@
-#include <cmath>
-#include <cstdlib>
-#include <iostream>
-#include <vector>
-#define DELTA 0.0001
+#include "conversion.h"
+#include <string>
 using namespace std;
 
 // Order: ISO 80000-2:2019 Convention (physics)
@@ -24,6 +21,7 @@ vector<float> ConvertFromCartesian(float x, float y, float z) {
   } else if (x == 0 && y < 0) {
     phi = -M_PI / 2;
   } else {
+    theta = -1;
     phi = -1;
   }
   vector<float> points = {r, theta, phi};
@@ -83,7 +81,7 @@ void GetCoords(int input, float coord1, float coord2, float coord3) {
       cout << "Input must meet: r ∈ [0, ∞), θ ∈ [0, π], φ ∈ [-π, π) \n";
     }
     cin >> coord1 >> coord2 >> coord3;
-    if (isnan(coord1) || isnan(coord1) || isnan(coord2)) {
+    if (isnan(coord1) || isnan(coord2)) {
       cerr << "Invalid input" << endl;
       exit(EXIT_FAILURE);
     }
