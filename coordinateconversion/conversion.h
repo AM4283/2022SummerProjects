@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <vector>
+#include <string>
 #define DELTA 0.0001
 using namespace std;
 
@@ -22,9 +23,10 @@ vector<float> ConvertFromSpherical(float r, float theta, float phi);
 vector<float> ConvertFromSpherical(vector<float> spherical);
 // Prints Converted coordinates
 void PrintCoordinates(vector<float> values);
+void PrintCoordinates(float num1, float num2, float num3);
 // sanity Check to see if the answer is accurate enough due to floating point
 // math
-void Check(vector<float> original, vector<float> reverse);
+int Check(vector<float> original, vector<float> reverse);
 // takes the input either x, y, z or r, theta, phi and returns the corresponding 
 // coordinate
 void GetCoords(int input, float coord1, float coord2, float coord3);
