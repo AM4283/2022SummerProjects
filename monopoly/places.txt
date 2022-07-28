@@ -1,0 +1,32 @@
+  Property MediterraneanAvenue("Mediterranean Avenue", 500);
+  Property BalticAvenue("Baltic Avenue", 500);
+  Property OrientalAvenue("Oriental Avenue", 500);
+  Property VermontAvenue("Vermont Avenue", 500);
+  Property ConnecticutAvenue("Connecticut Avenue", 500);
+  Property StCharlesPlace("St. Charles Place", 500);
+  Property StatesAvenue("States Avenue", 500);
+  Property VirginiaAvenue("Virginia Avenue", 500);
+  Property StJamesPlace("St. James Place", 500);
+  Property TennesseeAvenue("Tennessee Avenue", 500);
+  Property NewYorkAvenue("New York Avenue", 500);
+  Property KentuckyAvenue("Kentucky Avenue", 500);
+  Property IndianaAvenue("Indiana Avenue", 500);
+  Property IllinoisAvenue("Illinois Avenue", 500);
+  Property AtlanticAvenue("Atlantic Avenue", 500);
+  Property VentorAvenue("Ventor Avenue", 500);
+  Property MarvinGardens("Marvin Gardens", 500);
+  Property PacificAvenue("Pacific Avenue", 500);
+  Property NorthCarolinaAvenue("North Carolina Avenue", 500);
+  Property PennsylvaniaAvenue("Pennsylvania Avenue", 500);
+  Property ParkPlace("Park Place", 500);
+  Property Boardwalk("Boardwalk", 500);
+  
+  Property ReadingRailroad("Reading Railroad", 500);
+  Property PennsylvaniaRailroad("Pennsylvania Railroad", 500);
+  Property BandORailroad("B. & O. Railroad", 500);
+  Property ShortLineRailroad("Short Line Railroad", 500);
+  
+  Property ElectricCompany("Electric Company", 500);
+  Property WaterWorks("Water Works", 500);
+  
+  std::vector<Property> properties = {MediterraneanAvenue, BalticAvenue, OrientalAvenue, VermontAvenue, ConnecticutAvenue, StCharlesPlace, StatesAvenue, VirginiaAvenue, StJamesPlace, TennesseeAvenue, NewYorkAvenue, KentuckyAvenue, IndianaAvenue, AtlanticAvenue, VentorAvenue, MarvinGardens, PacificAvenue, NorthCarolinaAvenue, PennsylvaniaAvenue, ParkPlace, Boardwalk, ReadingRailroad, PennsylvaniaRailroad, BandORailroad, ShortLineRailroad, ElectricCompany, WaterWorks};
